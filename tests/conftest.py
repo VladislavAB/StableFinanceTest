@@ -13,7 +13,6 @@ from app.models import Merchant, Balance
 
 load_dotenv()
 DATABASE_URL = os.getenv("DATABASE_URL")
-SECRET_KEY = os.getenv("SECRET_KEY", "")
 
 
 @pytest_asyncio.fixture()
@@ -69,6 +68,3 @@ async def init_test_data(db):
     await db.rollback()
 
 
-# def make_signature(payload: dict) -> str:
-#     body = json.dumps(payload, separators=(",", ":")).encode()
-#     return hmac.new(SECRET_KEY.encode(), body, hashlib.sha256).hexdigest()
